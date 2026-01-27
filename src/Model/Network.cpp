@@ -12,3 +12,10 @@ void Network::register_user(
     
 }
 
+// check-password-for-user
+bool Network::check_password(
+    User& user,
+    std::string password
+){
+    return user.show_hashed_password() == password;
+}
