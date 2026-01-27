@@ -6,6 +6,8 @@
 class User{
     public:
         User(std::string con_u , std::string con_p , std::string con_d , std::string con_b);
+
+        // Getters
         std::string& show_user_name();
         std::string& show_hashed_password();
     private:
