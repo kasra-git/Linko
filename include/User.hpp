@@ -4,7 +4,7 @@
 
 class User{
     public:
-        User();
+        User(std::string,std::string,std::string,std::string);
     private:
         std::string userName;
         std::string password;
