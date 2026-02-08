@@ -4,7 +4,7 @@
 
 class Comment{
     public: 
-        Comment();
+        Comment(std::string , std::string);
     private:
         std::string author;
         std::string text;
