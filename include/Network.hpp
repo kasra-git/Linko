@@ -6,6 +6,7 @@
 class User;
 class Network{
     public:
+        bool add_user(std::string,std::string,std::string,std::string);
     private:    
         std::vector<User> users;
 
