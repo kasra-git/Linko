@@ -13,3 +13,7 @@ User* Network::getUser(const std::string& user_name){
     return &users[user_name];
 }
 
+Post& Network::createPost(const std::string& author,const std::string& text){
+    posts.emplace_back(nextPostID++ , author,text);
+    return posts.back();
+}
