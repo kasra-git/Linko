@@ -10,3 +10,9 @@ bool AuthManager::registerUser(
 ){return network.addUser(User(u,p,d,b));}
 
 
+User* AuthManager::login(const std::string& u,const std::string& p){
+    User* user = network.getUser(u);
+    if(user && user->checkPassword(p))
+        return user;
+    return nullptr;
+}
