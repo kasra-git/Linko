@@ -12,7 +12,7 @@ class Network{
         Network();
         bool addUser(const User& new_user);
         User* getUser(const std::string& user_name);
-        std::vector<Post>& getPosts() const;
+        std::vector<Post>& getPosts();
         Post& createPost(const std::string& author , const std::string& text);
     private:
         std::map<std::string , User> users;
