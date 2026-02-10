@@ -5,7 +5,11 @@
 
 class AuthManager{
     public:
+        AuthManager(Network& n);
+        bool registerUser(const std::string&,const std::string&,const std::string&,const std::string&);
+        User* login(const std::string&,const std::string&);
     private:
+        Network& network;
 };
 
 #endif
