@@ -8,6 +8,7 @@ class User{
         User(const std::string&,const std::string&,const std::string&,const std::string&);
         std::string getUsername() const;
         bool checkPassword(const std::string& password) const;
+        void follow(const std::string& user);
         const std::vector<std::string>& getFollwing()const;
 
     private:
