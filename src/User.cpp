@@ -1,5 +1,7 @@
 #include "../include/User.hpp"
 
+User::User() = default;
+
 User::User(
     const std::string& co_userName,
     const std::string& co_password,

@@ -5,6 +5,7 @@
 
 class User{
     public:
+        User();
         User(const std::string&,const std::string&,const std::string&,const std::string&);
         std::string getUsername() const;
         bool checkPassword(const std::string& password) const;
