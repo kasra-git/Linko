@@ -6,7 +6,16 @@
 
 class Post{
     public:
-        Post();
+        Post(int , const std::string& , const std::string&);
+
+        int getID()const;
+        std::string getAuthor()const;
+        std::string getText()const;
+        int getLikes()const;
+        int getCommentCount()const;
+
+        void like();
+        void addComment(const Comment& comment);
     private:
         int id;
         std::string author;
