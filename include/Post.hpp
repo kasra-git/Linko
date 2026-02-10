@@ -6,7 +6,7 @@
 
 class Post{
     public:
-        Post(int , const std::string&);
+        Post(int , const std::string& , const std::string&);
 
         int getID()const;
         std::string getAuthor()const;
