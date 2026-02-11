@@ -2,6 +2,7 @@
 #define NETWORK_HPP
 #include <vector>
 #include <map>
+
 #include "User.hpp"
 #include "Post.hpp"
 
@@ -14,6 +15,7 @@ class Network{
         User* getUser(const std::string& user_name);
         std::vector<Post>& getPosts();
         Post& createPost(const std::string& author , const std::string& text);
+        void saveUser();
     private:
         std::map<std::string , User> users;
         std::vector<Post> posts;
