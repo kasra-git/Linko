@@ -1,6 +1,8 @@
 #include "../include/Network.hpp"
 #include <fstream>
 #include <iostream>
+#include <sstream>
+#include <string>
 Network::Network():nextPostID(1){}
 
 bool Network::addUser(const User& new_user){
@@ -37,5 +39,24 @@ void Network::saveUser(){
 
     }
 
+    file.close();
+}
+
+void Network::loadUser(){
+    std::ifstream file("../data/users.txt");
+    if(!file){
+        return;
+    }
+    std::string line;
+    while(std::getline(file,line)){
+        std::stringstream ss(line);
+        std::string u , p ,d ,b;
+
+        std::getline(ss,u,'|');
+        std::getline(ss,p,'|');
+        std::getline(ss,d,'|');
+        std::getline(ss,b,'|');
+        users[u] = User(u,p,d,b);
+    }
     file.close();
 }
