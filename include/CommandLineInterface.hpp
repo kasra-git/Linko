@@ -8,6 +8,7 @@ class CommandLineInterface{
     public:
         CommandLineInterface(Network& n);
         void run();
+        void menu();
     private:
         Network& network;
         AuthManager auth;
