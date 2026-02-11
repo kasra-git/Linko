@@ -17,6 +17,8 @@ class Network{
         Post& createPost(const std::string& author , const std::string& text);
         void saveUser();
         void loadUser();
+        void savePost();
+        void loadPost();
     private:
         std::map<std::string , User> users;
         std::vector<Post> posts;

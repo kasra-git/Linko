@@ -1,4 +1,5 @@
 #include "../include/Network.hpp"
+#include <cstddef>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -58,5 +59,47 @@ void Network::loadUser(){
         std::getline(ss,b,'|');
         users[u] = User(u,p,d,b);
     }
+    file.close();
+}
+
+
+void Network::savePost(){
+    std::ofstream file("../data/posts.txt");
+
+    if(!file){
+        std::cerr << "file not found" << std::endl;
+    }
+
+    for(auto& post : posts){
+        file << post.getID() << '|' << post.getAuthor() << '|' << post.getLikes() << '|' << post.getText() << "\n";
+    }
+
+    file.close();
+}
+
+
+void Network::loadPost(){
+    std::ifstream file("../data/posts.txt");
+    if(!file){
+        return;
+    }
+
+    std::string line;
+    while (std::getline(file,line)){
+        std::stringstream ss(line);
+        std::string id , author , likes,text;
+
+        std::getline(ss,id,'|');
+        std::getline(ss,author,'|');
+        std::getline(ss,likes,'|');
+        std::getline(ss,text,'|');
+
+        Post p(std::stoi(id),author,text);
+        for(size_t i = 0; i<std::stoi(likes);i++){
+            p.like();
+            posts.push_back(p);
+        }
+    }
+
     file.close();
 }
