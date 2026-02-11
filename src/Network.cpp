@@ -36,8 +36,7 @@ void Network::saveUser(){
     }
 
     for(auto& [username,user] : users){
-        file << user.getUsername() << '|' << user.getPassword() << '|' << user.getDisplayName() << '|' << user.getDisplayName() << "\n";
-
+        file << user.getUsername() << '|' << user.getPassword() << '|' << user.getDisplayName() << '|' << user.getBio() << "\n";
     }
 
     file.close();

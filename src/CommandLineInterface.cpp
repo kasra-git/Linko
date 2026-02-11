@@ -1,6 +1,7 @@
 #include "../include/CommandLineInterface.hpp"
 #include "../include/Feed.hpp"
 #include <iostream>
+#include <string>
 
 CommandLineInterface::CommandLineInterface(Network& n):
     network(n) , auth(n) , currentUser(nullptr){}
@@ -14,9 +15,11 @@ void CommandLineInterface::run(){
         std::cin >> cmd;
 
         if (cmd == "register"){
-            std::string u,p;
-            std::cin >> u >> p;
-            if(auth.registerUser(u,p,u,"")){
+            std::string u,p,d,b;
+            std::cin >> u >> p >> d;
+            std::cin.ignore();
+            std::getline(std::cin,b);
+            if(auth.registerUser(u,p,d,b)){
                 std::cout << "Registered:)" << std::endl;
             }else{
                 std::cout << "Username exists" << std::endl;
