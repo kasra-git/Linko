@@ -102,3 +102,14 @@ void Network::loadPost(){
 
     file.close();
 }
+
+Post* Network::findPostById(int id) {
+
+    for (auto& post : posts) {
+        if (post.getID() == id) {
+            return &post;
+        }
+    }
+
+    return nullptr;
+}
