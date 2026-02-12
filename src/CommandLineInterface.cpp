@@ -55,7 +55,6 @@ void CommandLineInterface::run(){
                     continue;
                 }
                 std::getline(ss >> std::ws,d);
-                b = "";
                 if(!auth.registerUser(u,p,d,b)){
                     std::cout << "Error: username already exists" << std::endl;
                 }else{
