@@ -19,6 +19,7 @@ class Network{
         void loadUser();
         void savePost();
         void loadPost();
+        Post* findPostById(int id);
     private:
         std::map<std::string , User> users;
         std::vector<Post> posts;
