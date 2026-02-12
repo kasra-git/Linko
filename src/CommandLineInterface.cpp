@@ -159,7 +159,7 @@ void CommandLineInterface::run(){
                     continue;
                 }
 
-                Post* post = network.findPostByID(id);
+                Post* post = network.findPostById(id);
 
                 if(!post){
                     std::cout << "Error: post not found" << std::endl;
@@ -191,7 +191,7 @@ void CommandLineInterface::run(){
                     continue;
                 }
 
-                Post* post = network.findPostByID(id);
+                Post* post = network.findPostById(id);
 
                 if(!post){
                     std::cout << "Error: post not found" << std::endl;
