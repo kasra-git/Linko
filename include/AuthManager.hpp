@@ -10,6 +10,7 @@ class AuthManager{
         User* login(const std::string&,const std::string&);
     private:
         Network& network;
+        std::string hashPassword(const std::string& password);
 };
 
 #endif
