@@ -13,6 +13,5 @@ class Comment{
     private:
         std::string author;
         std::string text;
-        std::time_t timeStamp;
 };
 #endif
