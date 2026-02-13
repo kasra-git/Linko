@@ -3,9 +3,12 @@
 
 int main(){
     Network network;
+
     network.loadUser();
     network.loadPost();
+
     CommandLineInterface cli(network);
     cli.run();
+    
     return 0;
 }

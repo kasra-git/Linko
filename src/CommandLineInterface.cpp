@@ -29,6 +29,7 @@ void CommandLineInterface::menu(){
 void CommandLineInterface::run(){
     std::string line;
     menu();
+    
     while(true){
         try{
             std::cout << '>';

@@ -7,6 +7,7 @@ class User{
     public:
         User();
         User(const std::string&,const std::string&,const std::string&,const std::string&);
+        
         std::string getUsername() const;
         std::string getPassword() const;
         std::string getDisplayName() const;

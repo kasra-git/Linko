@@ -1,5 +1,4 @@
 #include "../include/Network.hpp"
-#include <cstddef>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -150,8 +149,8 @@ void Network::feed(Network& network){
         "]: " << post.getAuthor() <<
         std::endl << post.getText() <<
         std::endl << "Likes: " <<
-        post.getLikes() << std::endl <<
-        "Comments: " << post.getCommentCount() << std::endl;
+        post.getLikes() << '|' << " Comments: " <<
+        post.getCommentCount() << std::endl;
         std::cout << "------------------------------------------" << std::endl;
     }
 }
