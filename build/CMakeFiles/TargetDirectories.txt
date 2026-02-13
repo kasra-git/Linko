@@ -1,0 +1,3 @@
+/home/gost/Desktop/Linko/build/CMakeFiles/linko.dir
+/home/gost/Desktop/Linko/build/CMakeFiles/edit_cache.dir
+/home/gost/Desktop/Linko/build/CMakeFiles/rebuild_cache.dir
