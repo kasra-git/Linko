@@ -140,7 +140,7 @@ void CommandLineInterface::run(){
                     std::cout << "Error: Login required" << std::endl;
                     continue;
                 }
-                Network::show(network);
+                Network::feed(network);
             
             // Like
             }else if(cmd == "like"){

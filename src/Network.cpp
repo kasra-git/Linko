@@ -143,7 +143,7 @@ Post* Network::findPostById(int id) {
     return nullptr;
 }
 
-void Network::show(Network& network){
+void Network::feed(Network& network){
     for (auto& post : network.getPosts()){
         std::cout << "------------------------------------------" << std::endl;
         std::cout << "[" << post.getID() <<

@@ -20,7 +20,7 @@ class Network{
         void savePost();
         void loadPost();
         Post* findPostById(int id);
-        static void show(Network& network);
+        static void feed(Network& network);
     private:
         std::map<std::string , User> users;
         std::vector<Post> posts;
