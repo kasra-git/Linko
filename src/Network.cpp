@@ -142,3 +142,14 @@ Post* Network::findPostById(int id) {
 
     return nullptr;
 }
+
+void Network::show(Network& network){
+    for (auto& post : network.getPosts()){
+        std::cout << "[" << post.getID() <<
+        "]: " << post.getAuthor() <<
+        std::endl << post.getText() <<
+        std::endl << "Likes: " <<
+        post.getLikes() << std::endl <<
+        "Comments: " << post.getCommentCount() << std::endl;
+    }
+}
