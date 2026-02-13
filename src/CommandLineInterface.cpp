@@ -44,8 +44,9 @@ void CommandLineInterface::run(){
             // Register user
             if(cmd == "register"){
                 std::string u,p,d,b;
-                ss >> u >> p >> d;
+                ss >> u >> p;
                 ss.ignore();
+                std::getline(ss,d);
                 std::getline(ss,b);
                 if(u.empty() || p.empty()){
                     std::cout << "Error: invalid input" << std::endl;
