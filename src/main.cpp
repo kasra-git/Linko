@@ -7,7 +7,5 @@ int main(){
     network.loadPost();
     CommandLineInterface cli(network);
     cli.run();
-    network.saveUser();
-    network.savePost();
     return 0;
 }

@@ -165,10 +165,14 @@ void CommandLineInterface::run(){
                     continue;
                 }
 
-                post->like();
-                std::cout << "Post " << '\'' << id << '\'' << "liked successfully" << std::endl;
+                if (!post->addLike(currentUser->getUsername())) {
+                            std::cout << "Error: You have already liked this post.\n";
+                }else{
+                    std::cout << "Post liked successfully.\n";
+                }
+
             // Comment
-            }else if(cmd == "command"){
+            }else if(cmd == "comment"){
                 if(!currentUser){
                     std::cout << "Error: login required" << std::endl;
                     continue;
@@ -205,7 +209,6 @@ void CommandLineInterface::run(){
                 network.saveUser();
                 network.savePost();
                 std::cout << "Data saved successfully" << std::endl;
-                break;
 
             // Exit
             }else if(cmd == "exit"){

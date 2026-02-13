@@ -65,21 +65,34 @@ void Network::loadUser(){
 void Network::savePost(){
     std::ofstream file("../data/posts.txt");
 
-    if(!file){
-        std::cerr << "file not found" << std::endl;
+    if(!file.is_open()){
+        std::cerr << "Error: file posts.txt not found" << std::endl;
+        return;
     }
 
-    for(auto& post : posts){
-        file << post.getID() << '|' << post.getAuthor() << '|' << post.getLikes() << '|' << post.getText() << "\n";
-    }
+    for(const auto& post : posts){
+        file << post.getID() << "|" << post.getAuthor() << "|" << post.getText() << "|";
+        
+        const auto& likedUsers = post.getLikedUsers();
+        bool first = true;
 
+        for(const auto& user : likedUsers){
+            if(!first){
+                file << ',';
+            }
+            file << user;
+            first = false;
+        }
+        file << '\n';
+    }
     file.close();
 }
 
 
 void Network::loadPost(){
     std::ifstream file("../data/posts.txt");
-    if(!file){
+    if(!file.is_open()){
+        std::cerr << "Error: posts.txt not found" <<std::endl;
         return;
     }
 
@@ -93,14 +106,30 @@ void Network::loadPost(){
         std::getline(ss,likes,'|');
         std::getline(ss,text,'|');
 
-        Post p(std::stoi(id),author,text);
-        for(size_t i = 0; i<std::stoi(likes);i++){
-            p.like();
-            posts.push_back(p);
+        if(id.empty() || author.empty()){
+            std::cout << "Error: invalid inputs" << std::endl;
+            return;
         }
-    }
 
-    file.close();
+        int ID = std::stoi(id);
+
+        Post p(ID,author,text);
+
+        std::stringstream likeStream(likes);
+        std::string username;
+
+        while (std::getline(likeStream,username,',')) {
+            if(!username.empty()){
+                p.addLike(username);
+            }
+        }
+        posts.push_back(p);
+
+        if(ID >= nextPostID){
+            nextPostID = ID + 1;
+        }
+        file.close();
+    }
 }
 
 Post* Network::findPostById(int id) {
