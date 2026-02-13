@@ -8,27 +8,22 @@ CommandLineInterface::CommandLineInterface(Network& n):
     network(n) , auth(n) , currentUser(nullptr){}
 
 void CommandLineInterface::menu(){
-    std::cout << "Welcome to Linko Social Network!" << std::endl;
-    std::string commands[] = {
-        "--------------------------------",
-        "Available commands:",
-        "register",
-        "login",
-        "post",
-        "feed",
-        "follow",
-        "like",
-        "comment",
-        "save",
-        "load",
-        "logout",
-        "menu",
-        "exit"
-    };
+    std::cout << "Linko\n"
+    "  |\n"
+        "  |--> register <user_name> <password> <display_name> <bio>\n"
+        "  |--> login <user_name> <password>\n"
+        "  |--> post <post>\n"
+        "  |--> feed\n"
+        "  |--> follow <user_name>\n"
+        "  |--> like <postID>\n"
+        "  |--> comment <postID> <comment_text>\n"
+        "  |--> save\n"
+        "  |--> load\n"
+        "  |--> logout\n"
+        "  |--> exit\n"
+        "  |\n"
+    "End\n";
 
-    for (auto& text : commands){
-        std::cout << "\t" << text << std::endl;
-    }
 }
 
 void CommandLineInterface::run(){
