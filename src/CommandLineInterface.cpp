@@ -1,5 +1,4 @@
 #include "../include/CommandLineInterface.hpp"
-#include "../include/Feed.hpp"
 #include <exception>
 #include <iostream>
 #include <sstream>
@@ -141,7 +140,7 @@ void CommandLineInterface::run(){
                     std::cout << "Error: Login required" << std::endl;
                     continue;
                 }
-                Feed::show(network);
+                Network::show(network);
             
             // Like
             }else if(cmd == "like"){
