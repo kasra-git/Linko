@@ -3,6 +3,8 @@
 #include "Comment.hpp"
 #include <string>
 #include <vector>
+#include <unordered_set>
+
 
 class Post{
     public:
@@ -12,16 +14,17 @@ class Post{
         std::string getAuthor()const;
         std::string getText()const;
         int getLikes()const;
+        bool addLike(const std::string& username);
         int getCommentCount()const;
-
-        void like();
+        const std::unordered_set<std::string>& getLikedUsers() const;
         void addComment(const Comment& comment);
     private:
         int id;
         std::string author;
         std::string text;
-        int likes;
         std::vector<Comment> comments;
+        std::unordered_set<std::string> likedUsers;
+
 };
 
 #endif
